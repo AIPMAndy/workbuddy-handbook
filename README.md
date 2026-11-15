@@ -4,7 +4,7 @@
 
 **不是只会聊天，而是完成一个可验收的工作结果。**
 
-[📖 计划在线站点（待启用 Pages）](https://aipmandy.github.io/workbuddy-handbook/) · [📄 精美 PDF](downloads/workbuddy-handbook.pdf) · [🧰 30 个可复制任务](content/prompts.json) · [✅ 验收模板](templates/acceptance-checklist.csv)
+[📖 根站已构建的在线版（独立 Pages 待启用）](https://aipmandy.github.io/workbuddy-handbook/) · [📄 精美 PDF](downloads/workbuddy-handbook.pdf) · [🧰 30 个可复制任务](content/prompts.json) · [✅ 验收模板](templates/acceptance-checklist.csv)
 
 作者：**AI 酋长 Andy / 星觉科技** · 文档核验日期：**2026-11-14** · 许可：**MIT**
 
@@ -82,14 +82,14 @@ PDF 与站点取自 **同一个 `content/guide.md`** 和 `content/prompts.json`�
 
 ## 实际 GitHub 发布位置
 
-本项目已单独开源：[AIPMAndy/workbuddy-handbook](https://github.com/AIPMAndy/workbuddy-handbook)。网站和 PDF 从仓库内 `docs/` 发布，不再依赖其他仓库部署。
+本项目已单独开源：[AIPMAndy/workbuddy-handbook](https://github.com/AIPMAndy/workbuddy-handbook)。**实际状态分两层**：本独立仓库包含完整 `docs/`、PDF、源码，但独立 Pages 尚未启用；相同对外路径的静态页面与 PDF 已保存在 [AIPMAndy.github.io 根站](https://github.com/AIPMAndy/AIPMAndy.github.io/tree/main/workbuddy-handbook)，根站 [2026-11-14 Pages 构建成功](https://github.com/AIPMAndy/AIPMAndy.github.io/actions/runs/43614088743)。尚未从外部设备独立完成 HTTP/真实手机验收。
 
 - [仓库源码与原始 PDF](https://github.com/AIPMAndy/workbuddy-handbook)（PDF 路径：`downloads/workbuddy-handbook.pdf`）
-- [计划在线站点](https://aipmandy.github.io/workbuddy-handbook/)（**首次启用 Pages 并部署成功后**才可视作上线）
-- [计划在线 PDF](https://aipmandy.github.io/workbuddy-handbook/downloads/workbuddy-handbook.pdf)（部署成功后核验）
+- [根站对应访问地址](https://aipmandy.github.io/workbuddy-handbook/)（根站构建成功；外网与手机验收待核实）
+- [根站对应 PDF](https://aipmandy.github.io/workbuddy-handbook/downloads/workbuddy-handbook.pdf)（根站文件已存在；下载响应待核实）
 - [源代码质量检查](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43684774821)（2026-11-15 success）
 
-**部署阻塞（2026-11-15）**：[独立 Pages 工作流 #43684774831](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43684774831) 在 `actions/configure-pages@v5` 报 `Get Pages site failed: Not Found`。这是仓库尚未完成 GitHub Pages 首次启用的信号，不能把源码存在或质量检查成功当作网站上线。
+**独立部署阻塞（2026-11-15）**：[最新独立 Pages 工作流 #43691403261](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43691403261)（此前 [#43684774831](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43684774831) 在 `actions/configure-pages@v5` 报 `Get Pages site failed: Not Found`。这是仓库尚未完成 GitHub Pages 首次启用的信号，不能把源码存在或质量检查成功当作网站上线。
 
 **唯一需要仓库管理员手动完成的发布设置**：打开 [Settings → Pages](https://github.com/AIPMAndy/workbuddy-handbook/settings/pages)，在 **Build and deployment → Source** 选择 **GitHub Actions** 并保存。然后到 [Deploy independent GitHub Pages 工作流](https://github.com/AIPMAndy/workbuddy-handbook/actions/workflows/pages.yml) 使用 **Run workflow**（选择 `main`）。工作流成功后，实际打开首页与 PDF，核对功能、联系人、双官网及移动端效果。无需再建同名仓库，也不必从母仓库重新迁移。
 
