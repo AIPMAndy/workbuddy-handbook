@@ -4,7 +4,7 @@
 
 **不是只会聊天，而是完成一个可验收的工作结果。**
 
-[📖 完整完整在线教程](https://aipmandy.github.io/workbuddy-handbook/) · [📄 精美 PDF](downloads/workbuddy-handbook.pdf) · [🧰 30 个可复制任务](content/prompts.json) · [✅ 验收模板](templates/acceptance-checklist.csv)
+[📖 计划在线站点（待启用 Pages）](https://aipmandy.github.io/workbuddy-handbook/) · [📄 精美 PDF](downloads/workbuddy-handbook.pdf) · [🧰 30 个可复制任务](content/prompts.json) · [✅ 验收模板](templates/acceptance-checklist.csv)
 
 作者：**AI 酋长 Andy / 星觉科技** · 文档核验日期：**2026-11-14** · 许可：**MIT**
 
@@ -82,15 +82,16 @@ PDF 与站点取自 **同一个 `content/guide.md`** 和 `content/prompts.json`�
 
 ## 实际 GitHub 发布位置
 
-本项目已独立发布在公开仓库 [AIPMAndy/workbuddy-handbook](https://github.com/AIPMAndy/workbuddy-handbook)。此前的共享站点目录仅作为历史兼容链接，不再是本项目唯一的源码位置。
+本项目已单独开源：[AIPMAndy/workbuddy-handbook](https://github.com/AIPMAndy/workbuddy-handbook)。网站和 PDF 从仓库内 `docs/` 发布，不再依赖其他仓库部署。
 
-- [在线阅读站点](https://aipmandy.github.io/workbuddy-handbook/)
-- [PDF 在线地址](https://aipmandy.github.io/workbuddy-handbook/downloads/workbuddy-handbook.pdf)
-- [查看实际源码](https://github.com/AIPMAndy/workbuddy-handbook)
+- [仓库源码与原始 PDF](https://github.com/AIPMAndy/workbuddy-handbook)（PDF 路径：`downloads/workbuddy-handbook.pdf`）
+- [计划在线站点](https://aipmandy.github.io/workbuddy-handbook/)（**首次启用 Pages 并部署成功后**才可视作上线）
+- [计划在线 PDF](https://aipmandy.github.io/workbuddy-handbook/downloads/workbuddy-handbook.pdf)（部署成功后核验）
+- [源代码质量检查](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43684774821)（2026-11-15 success）
 
-如需日后迁移为独立仓库，在有创建仓库权限的电脑上，从该目录导出全部文件后运行 `bash scripts/publish_github.sh`，并在独立仓库里设置 Pages 来源为 `main /docs`。迁移时请一并更新 `scripts/build_all.py` 的 `REPO_URL`。
+**部署阻塞（2026-11-15）**：[独立 Pages 工作流 #43684774831](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43684774831) 在 `actions/configure-pages@v5` 报 `Get Pages site failed: Not Found`。这是仓库尚未完成 GitHub Pages 首次启用的信号，不能把源码存在或质量检查成功当作网站上线。
 
-现在的 Pages 部署由母仓库负责；提交成功不等于部署立即生效，请以 GitHub 的 Pages 构建状态和线上 HTTP 访问为准。
+**唯一需要仓库管理员手动完成的发布设置**：打开 [Settings → Pages](https://github.com/AIPMAndy/workbuddy-handbook/settings/pages)，在 **Build and deployment → Source** 选择 **GitHub Actions** 并保存。然后到 [Deploy independent GitHub Pages 工作流](https://github.com/AIPMAndy/workbuddy-handbook/actions/workflows/pages.yml) 使用 **Run workflow**（选择 `main`）。工作流成功后，实际打开首页与 PDF，核对功能、联系人、双官网及移动端效果。无需再建同名仓库，也不必从母仓库重新迁移。
 
 ## 证据等级
 
