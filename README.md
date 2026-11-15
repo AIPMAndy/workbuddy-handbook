@@ -4,9 +4,9 @@
 
 **不是只会聊天，而是完成一个可验收的工作结果。**
 
-[📖 根站已构建的在线版（独立 Pages 待启用）](https://aipmandy.github.io/workbuddy-handbook/) · [📄 精美 PDF](downloads/workbuddy-handbook.pdf) · [🧰 30 个可复制任务](content/prompts.json) · [✅ 验收模板](templates/acceptance-checklist.csv)
+[📖 在线阅读](https://aipmandy.github.io/workbuddy-handbook/) · [📄 精美 PDF](downloads/workbuddy-handbook.pdf) · [🧰 30 个可复制任务](content/prompts.json) · [✅ 验收模板](templates/acceptance-checklist.csv)
 
-作者：**AI 酋长 Andy / 星觉科技** · 文档核验日期：**2026-11-14** · 许可：**MIT**
+作者：**AI酋长Andy** · 流量 AI 联合创始人、星觉 AI 创始人 · 星觉科技 · 北京 · 文档核验日期：**2026-11-14** · 许可：**MIT**
 
 > 独立开源教程，**不是腾讯官方产品**，没有官方授权、背书或赞助。开源的是本仓库代码、文档与教学数据，不是 WorkBuddy 客户端。
 
@@ -82,16 +82,16 @@ PDF 与站点取自 **同一个 `content/guide.md`** 和 `content/prompts.json`�
 
 ## 实际 GitHub 发布位置
 
-本项目已单独开源：[AIPMAndy/workbuddy-handbook](https://github.com/AIPMAndy/workbuddy-handbook)。**实际状态分两层**：本独立仓库包含完整 `docs/`、PDF、源码，但独立 Pages 尚未启用；相同对外路径的静态页面与 PDF 已保存在 [AIPMAndy.github.io 根站](https://github.com/AIPMAndy/AIPMAndy.github.io/tree/main/workbuddy-handbook)，根站 [2026-11-14 Pages 构建成功](https://github.com/AIPMAndy/AIPMAndy.github.io/actions/runs/43614088743)。尚未从外部设备独立完成 HTTP/真实手机验收。
+本项目就是独立公开仓库 [AIPMAndy/workbuddy-handbook](https://github.com/AIPMAndy/workbuddy-handbook)。GitHub Pages 已启用：仓库 `has_pages` 为 true，构建类型是现有 GitHub Actions 工作流（`build_type: workflow`），发布目录仍是 `docs/`。线上站点根路径对应 `docs/` 的内容。
+
+2026-11-15 复查 [https://aipmandy.github.io/workbuddy-handbook/](https://aipmandy.github.io/workbuddy-handbook/)：HTTP 200，响应正文与本仓库 `index.html`、`docs/index.html` 的 SHA-256 相同（`48e298a8ca3a464973121035031d2e166fee486159be1dc2d21cab92f37bbae4`）。同日 [PDF](https://aipmandy.github.io/workbuddy-handbook/downloads/workbuddy-handbook.pdf) 为 HTTP 200，且与 `downloads/workbuddy-handbook.pdf` 的 SHA-256 相同（`4d85d50c2e420f69f1f42dd8008eda475c8e3a1062483f97a4cb2de288a528ab`）。`/docs/index.html` 返回 404，因为 Pages 把 `docs/` 当作站点根，而不是在站点里再挂一层 `docs/`。
+
+部署方式不变：`.github/workflows/pages.yml` 继续在推送到 `main` 时上传 `./docs`。`scripts/publish_github.sh` 保留，只用于最初建库，不改发布源。
 
 - [仓库源码与原始 PDF](https://github.com/AIPMAndy/workbuddy-handbook)（PDF 路径：`downloads/workbuddy-handbook.pdf`）
-- [根站对应访问地址](https://aipmandy.github.io/workbuddy-handbook/)（根站构建成功；外网与手机验收待核实）
-- [根站对应 PDF](https://aipmandy.github.io/workbuddy-handbook/downloads/workbuddy-handbook.pdf)（根站文件已存在；下载响应待核实）
+- [Pages 首页](https://aipmandy.github.io/workbuddy-handbook/)（2026-11-15 HTTP 200，与本仓库页面一致）
+- [Pages PDF](https://aipmandy.github.io/workbuddy-handbook/downloads/workbuddy-handbook.pdf)（2026-11-15 HTTP 200，与仓库 PDF 一致）
 - [源代码质量检查](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43684774821)（2026-11-15 success）
-
-**独立部署阻塞（2026-11-15）**：[最新独立 Pages 工作流 #43691403261](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43691403261)（此前 [#43684774831](https://github.com/AIPMAndy/workbuddy-handbook/actions/runs/43684774831) 在 `actions/configure-pages@v5` 报 `Get Pages site failed: Not Found`。这是仓库尚未完成 GitHub Pages 首次启用的信号，不能把源码存在或质量检查成功当作网站上线。
-
-**唯一需要仓库管理员手动完成的发布设置**：打开 [Settings → Pages](https://github.com/AIPMAndy/workbuddy-handbook/settings/pages)，在 **Build and deployment → Source** 选择 **GitHub Actions** 并保存。然后到 [Deploy independent GitHub Pages 工作流](https://github.com/AIPMAndy/workbuddy-handbook/actions/workflows/pages.yml) 使用 **Run workflow**（选择 `main`）。工作流成功后，实际打开首页与 PDF，核对功能、联系人、双官网及移动端效果。无需再建同名仓库，也不必从母仓库重新迁移。
 
 ## 证据等级
 
@@ -101,13 +101,24 @@ PDF 与站点取自 **同一个 `content/guide.md`** 和 `content/prompts.json`�
 | 教学模拟 | CSV 订单、会议文本、求职与企业流程 | `examples/`、`templates/`、`content/prompts.json` |
 | 未在当前会话实测 | 30 条指令在 WorkBuddy 客户端的实际执行结果 | 欢迎贡献明确版本与日志的可复现实测 PR |
 
+## 常见问题
+
+**这是腾讯官方手册吗？**  
+不是。这是独立开源教程，**不是腾讯官方产品**，没有官方授权、背书或赞助。文中的产品名是腾讯 WorkBuddy。
+
+**示例是真实业务数据吗？**  
+不是。订单、会议和业务流程是教学模拟，见 `examples/` 与上面的证据等级。
+
+**30 条指令都在 WorkBuddy 客户端里执行过吗？**  
+没有。它们是可复制的任务模板，不表示每一条都已在客户端跑通。请在自己的环境里验收。
+
 ## 贡献与安全
 
 阅读 `CONTRIBUTING.md` 与 `SECURITY.md`。请勿在 issue/PR 中泄露密钥、客户隐私、企业内部文件或未经授权的第三方材料。所有真实案例需有公开授权和可核验来源。
 
 ## 作者与联系
 
-教程**完全免费阅读、无需加微信**。更多 AI 产品与企业实战内容：[个人官网 metaver.vip](https://metaver.vip/) · [星觉科技 www.a6no1.cn](https://www.a6no1.cn/) · 公众号搜索 **AI 酋长 Andy** · 个人微信 **`AIPMAndy`**。
+教程**完全免费阅读、无需加微信**。作者 **AI酋长Andy**，流量 AI 联合创始人、星觉 AI 创始人，星觉科技，北京。更多内容：[个人官网 metaver.vip](https://metaver.vip/) · [星觉科技 www.a6no1.cn](https://www.a6no1.cn/) · 公众号搜索 **AI 酋长 Andy** · 个人微信 **`AIPMAndy`**。
 
 本项目采用 [MIT License](LICENSE)，不涉及腾讯产品商标和服务许可的授权。
 
